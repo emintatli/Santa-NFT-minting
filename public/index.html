@@ -1,43 +1,728 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
+<html lang="zxx">
 
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
-    <title>React App</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="keywords" content="Degen Santa NFTS" />
+    <meta name="description" content="Degen Santa NFTS" />
+    <title>Degen Santa NFTS</title>
+    <!--font-awesome icons link-->
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/brands.css">
+    
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/slick.css">
+    <!--main style file-->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <link rel="stylesheet" href="css/responsive.css">
+    
+    
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;700&family=Kaushan+Script&display=swap" rel="stylesheet"> 
+    <style>
+    .snow-text
+{
+	padding:0;
+	color:#fff;
+	font-size:8vw;
+	margin-left:-1vw;
+	position:relative;
+	margin:4vh 0 8vh 0;
+	text-transform:none;
+	display:inline-block;
+	font-family:'Kaushan Script', cursive;
+	text-shadow:0px 0px 20px #000;
+}
+.header-text h3
+{
+	font-family:'Kaushan Script', cursive;
+	text-shadow:0px 0px 20px #000;
+	font-size:2.2vw;
+	border-bottom-width:0px;
+	
+}
+.header-text h3::after{display:none;}
+.navbar-light .navbar-brand{font-family:'Kaushan Script', cursive;
+	text-shadow:0px 0px 20px #000;color:#f2f4f8;}
+	#dark-mode {
+    background: #07051a;
+    overflow-x: hidden;
+    position: relative;
+    height: 100%;
+}
+html
+{
+	margin:0;
+	padding:0;
+	width:100%;
+	height:100%;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	box-sizing:border-box;
 
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
+}
+body
+{
+	margin:0;
+	padding:0;
+	width:100%;
+	height:100%;
+	color:#fff;
+	font-size:18px;
+	font-weight:400;
+	font-family:'Oswald', sans-serif;
+	background-color:#000;
+	line-height:1;
+}
+.bg-container
+{
+	width:100%;
+	height:100%;
+	margin:0 auto;
+	max-width:1920px;
+	background-color:#000;
+	background-image:url('img/bg.jpg');
+	background-position:top center;
+	background-repeat:no-repeat;
+	background-size:cover;
+	position:relative;
+	overflow:hidden;
+}
+p {
+    line-height: 1.45em;
+}
+.nav-bg {
+    background: #2a2562 !important;
+    padding: 25px 0;
+    -webkit-box-shadow: 0 31px 35px rgba(0, 0, 0, .1);
+    box-shadow: 0 31px 35px rgba(0, 0, 0, .1);
+    opacity:0.90;
+}
+.bg-container2
+{
+	width:100%;
+	height:100%;
+	margin:0 auto;
+	max-width:1920px;
+	background-color:#000;
+	background-position:top center;
+	background-repeat:no-repeat;
+	background-size:cover;
+	position:relative;
+	overflow:hidden;
+}
+.bg-container3
+{
+	width:100%;
+	height:100%;
+	margin:0 auto;
+	max-width:1920px;
+	background-color:#000;
+	background-position:top center;
+	background-repeat:no-repeat;
+	background-size:cover;
+	position:relative;
+	overflow:hidden;
+}
+.parallaxbg2 {
+  /* The image used */
+  background-image:url('img/santafingers.jpg');
+
+  /* Set a specific height */
+  min-height: 1200px;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.parallaxbg4 {
+  /* The image used */
+  background-image:url('img/santacigar.jpg');
+
+  /* Set a specific height */
+  min-height: 1200px;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.parallaxbg5 {
+  /* The image used */
+  background-image:url('img/santaout.jpg');
+
+  /* Set a specific height */
+  min-height: 1200px;
+
+  /* Create the parallax scrolling effect */
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.product-slider span{color:#fff;font-size:14px;}
+.progress{background:#4a4848;width:100%;}
+.p-bars{padding-top:10px;}
+.p-bar span{line-height:20px;}
+.border-style{padding-bottom:5px;}
+.content1{min-height:350px;background-color:rgba(0, 0, 0, 0.5);margin-left:100px;margin-right:100px;margin-top:50px;border-radius:25px;-webkit-box-shadow: 0 31px 35px rgba(255, 255, 255, .2);
+    box-shadow: 0 31px 35px rgba(255, 255, 255, .2);padding:25px;}
+.content2{min-height:350px;background-color:rgba(0, 0, 0, 0.5);margin-left:100px;margin-right:100px;margin-top:50px;margin-bottom:50px;border-radius:25px;-webkit-box-shadow: 0 31px 35px rgba(255, 255, 255, .2);
+    box-shadow: 0 31px 35px rgba(255, 255, 255, .2);padding:25px;}
+    .ffpage1{display: flex;
+  align-items: center;
+  justify-content: center;width:100%;height:100%;}
+  .ffpage2{display: flex;
+  align-items: center;
+  justify-content: center;width:100%;height:100%;}
+  .btn-default, .btn-default:link, .btn-default:visited, .btn-default:hover, .btn-default:active {
+    color: #fff;
+    font-size: 24px;
+    text-align: center;
+    display: inline-block;
+    border: 2px solid #eee;
+    -moz-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+    background-color: rgba(0,0,0,0.2);
+    -moz-box-shadow: 0 0 5px rgba(0,0,0,0.8);
+    -webkit-box-shadow: 0 0 5px rgba(0,0,0,0.8);
+    box-shadow: 0 0 5px rgba(0,0,0,0.8);
+    text-transform: uppercase;
+    text-decoration: none;
+    text-shadow: none;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+    padding: 15px 50px;
+}
+.btn-default:hover, .btn-default:active {
+    background-color: #43A6F3;
+    border-color: #43A6F3;
+}
+.minttext1{font-size:30px;}
+.minttext2{font-size:22px;}
+.minttext3{font-size:36px;}
+.amount-group
+{
+    margin-bottom: 30px;
+}
+@media screen and (max-width:1200px)
+{
+.header-text h3
+{
+	font-family:'Kaushan Script', cursive;
+	text-shadow:0px 0px 20px #000;
+	font-size:3.6vw;
+	border-bottom-width:0px;
+	
+}
+.content1{margin-left:40px;margin-right:40px;}
+.content2{margin-left:40px;margin-right:40px;}
+}
+@media screen and (max-width:768px)
+{
+.minttext1{font-size:20px;}
+.minttext2{font-size:16px;}
+.minttext3{font-size:24px;}
+.ffpage1{height:auto;}
+.ffpage2{height:auto;padding-top:50px;}
+.fpage1{height:1200px !important;}
+.fpage2{height:1650px !important;}
+.header-text h3
+{
+	font-family:'Kaushan Script', cursive;
+	text-shadow:0px 0px 20px #000;
+	font-size:4.6vw;
+	border-bottom-width:0px;
+	
+}
+.content1{margin-left:20px;margin-right:20px;}
+.content2{margin-left:20px;margin-right:20px;}
+.btn-default, .btn-default:link, .btn-default:visited, .btn-default:hover, .btn-default:active{padding: 15px 30px;}
+}
+    </style>
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+</head>
+
+<body id="dark-mode" class="">
+    
+    <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">Degen Santa</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="fa fa-bars" aria-hidden="true"></i>
+            </button>
+            <div class="collapse navbar-collapse menu-main" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-auto menu-item">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#mint">Mint</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#story">A Degen Xmas Story</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#features">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#roadmap">Roadmap</a>
+                    </li>
+                    
+                    <li class="nav-item">
+                        <a class="nav-link" href="#evilelves">Evil F@#k'n Elves</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#community">Community</a>
+                    </li>
+                </ul>
+            </div>
+            
+            
+        </div>
+    </nav>
+
+    <!-- BACKGROUND CONTAINER -->
+		<div id="mint" class="bg-container snowy">
+			<!-- GLASS BALL -->
+			<div class="glass-ball rotate"></div>
+			<!-- TOP LIGHT -->
+			<div class="top-light"></div>
+			<!-- PAGE CONTENT -->
+			<div class="page-content">
+				<div class="fullpage">
+					<!-- HOME SECTION -->
+					<div id="home" class="section active" style="padding-top:50px;">
+						<!-- TITLE -->
+						<h1 class="snow-text">Degen Santa</h1>
+						<!-- COUNTER -->
+						<div class="snow-box">
+							<div class="countdown" data-date="December 22 2021 16:00:00"></div>
+						</div>
+                        <div id="root"></div>
+					</div>
+					
+				</div>
+			</div>
+		</div>
+    <!-- BANNER AREA ENDS -->
+    
+    	<div id="story" class="bg-container2 ">
+    	<div class="parallaxbg2 snowy"></div>
+    	<div class="page-content">
+				<div class="fullpage" style="display: flex;
+  align-items: center;
+  justify-content: center;width:100%;height:100%;">
+				<div class="container">
+				<div class="row header-text text-center">
+                <div class="col-lg-12 text-center">
+                   
+                     <div style="text-align:center;">
+                    <div style="" class="content1">
+                     <h3>A Degen Santa Xmas Story...</h3>
+                     <div style="padding-top:15px;">
+                     <p>
+                     As children, we all grew up with a number of characters in our lives<br/>that provided positive lessons to become better humans.
+                     </p>
+                     <p style="padding-top:10px;">
+                     Santa incentivised us to be good right through the year.<br/>
+The Tooth Fairy made sure we brushed our teeth.<br/>
+The Easter bunny treated good children with chocolate eggs.<br/>
+<br/>
+But no one is perfect. Not even fictional characters who were used to make children behave better.
+<br/><br/>
+When Santa's done for year and he couldn’t give a fuck about the elves,<br/> reindeer or his 'naughty or nice' list anymore what does he do?<br/>
+A bag in the toilet with some strippers... most likely.
+                     </p>
+                     </div>
+                    </div>
+                    </div>
+                </div>
+               
+            	</div>
+				
+				</div>
+				</div>
+		</div>
+    	</div>
+    	<div id="features" class="bg-container3 snowy">
+    	<div class="page-content">
+				<div class="fullpage" style="display: flex;
+  align-items: center;
+  justify-content: center;width:100%;height:100%;">
+				<div class="container">
+				<div class="row header-text text-center">
+                <div class="col-lg-12 text-center">
+                   
+                     <h3 style="padding-bottom:25px;">Features</h3>
+                     <p style="padding-bottom:55px;">Only 3,333 Degen Santa's with be minted.<br/>
+                     Each Santa comes with it's own unique set of traits and rarity value.
+                     </p>
+                     <div class="product-main">
+                        <div class="col-lg-3">
+                            <div class="product-slider text-center">
+                                <div class="pro-img">
+                                    <img src="images/s1.jpg" style="width:200px;" alt="product-img">
+                                </div>
+                                <div class="border-style">
+                                    <h4>Background</h4>
+                                   
+                                </div>
+                                <p>Teal, 
+Orange, 
+Pink, 
+Grey, 
+Brown, 
+Blue, 
+Yellow, 
+Green, 
+Casino, 
+Strippers, 
+Bar, 
+Sleigh, 
+Chimney, 
+House
+
+                               </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="product-slider text-center">
+                                <div class="pro-img">
+                                    <img src="images/s2.jpg" style="width:200px;"  alt="product-img">
+                                </div>
+                                <div class="border-style">
+                                    <h4>Eyes</h4>
+                                   
+                                </div>
+                                <p>Stoned, 
+Normal, 
+VR, 
+3D, 
+Laser
+<br/><br/><br/>
+
+
+                               </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="product-slider text-center">
+                                <div class="pro-img">
+                                    <img src="images/s3.jpg" style="width:200px;"  alt="product-img">
+                                </div>
+                                <div class="border-style">
+                                    <h4>Headwear</h4>
+                                    
+                                </div>
+                                <p>Santa, 
+Elf, 
+Hoes, 
+Gold, 
+Hologram, 
+Fire
+<br/><br/><br/>
+
+
+                               </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="product-slider text-center">
+                                <div class="pro-img">
+                                    <img src="images/s4.jpg"  style="width:200px;"  alt="product-img">
+                                </div>
+                                <div class="border-style">
+                                    <h4>Clothing</h4>
+                                    
+                                </div>
+                                <p>None, 
+Leather, 
+Santa, 
+Braces, 
+Tattoo, 
+<br/><br/><br/>
+
+                               </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="product-slider text-center">
+                                <div class="pro-img">
+                                    <img src="images/s5.jpg"  style="width:200px;"  alt="product-img">
+                                </div>
+                                <div class="border-style">
+                                    <h4>Beard</h4>
+                                    
+                                </div>
+                                <p>Gold, 
+Hologram, 
+Glitter, 
+Santa
+<br/><br/><br/>
+
+                               </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3">
+                            <div class="product-slider text-center">
+                                <div class="pro-img">
+                                    <img src="images/s6.jpg"  style="width:200px;"  alt="product-img">
+                                </div>
+                                <div class="border-style">
+                                    <h4>Hands</h4>
+                                    
+                                </div>
+                                <p>Coke, 
+Finger, 
+Joint, 
+Whisky, 
+Coal, 
+Gift, 
+None
+<br/><br/>
+
+                               </p>
+                            </div>
+                        </div>
+                    </div>
+                   
+                </div>
+               
+            	</div>
+				
+				</div>
+				</div>
+		</div>
+    	</div>
+<div id="roadmap" class="bg-container2 fpage1">
+    	<div class="parallaxbg4 snowy"></div>
+    	<div class="page-content">
+				<div class="fullpage ffpage1" >
+				<div class="container">
+				<div class="row header-text text-center">
+                <div class="col-lg-12 text-center">
+                   
+                     <div style="text-align:center;">
+                    <div class="content2">
+                     <h3>Roadmap</h3>
+                     <div style="padding-top:15px;">
+                     <div class="row">
+                        <div class="col-lg-6 col-sm-6">
+                            <div class="over-item txt-center unique-style3">
+                                
+                                <div class="break"></div>
+                                <h3>Create</h3>
+                                <p>Create a series of NFTs that celebrates the Degen side of the characters that filled our childhoods</p>
+                                
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-6">
+                            <div class="over-item txt-center unique-style">
+                                
+                                <div class="break"></div>
+                                <h3>Release</h3>
+                                <p>Every release will be bigger, better, and more degenerative. </p>
+                                
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-6">
+                            <div class="over-item txt-center unique-style2">
+                                
+                                <div class="break"></div>
+                                <h3>Hold</h3>
+                                <p>Every holder of REKT:CHILDHOODS NFTs will benefit from each new iteration we bring to life with airdrops, whitelists and deals available.
+Next release: Degen Easter Bunny</p>
+                                
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-sm-6">
+                            <div class="over-item txt-center unique-style4">
+                                
+                                <div class="break"></div>
+                                <h3>Gifting Back</h3>
+                                <p>We support charities that help children that are genuinely having a tough time. We are donating 5% of all proceeds to Variety international who help children living in impoverished condition.
+</p>
+                                
+                            </div>
+                        </div>
+                    </div>
+                     </div>
+                    </div>
+                    </div>
+                </div>
+               
+            	</div>
+				
+				</div>
+				</div>
+		</div>
+    	</div>
+    	<div id="evilelves" class="bg-container3 snowy fpage2">
+    	<div class="page-content">
+				<div class="fullpage ffpage2">
+				<div class="container">
+				<div class="row header-text text-center">
+                <div class="col-lg-12 text-center">
+                   
+                     <h3 style="padding-bottom:25px;">Evil F@#k'n Elves</h3>
+                     <br/>
+                      <a href="https://rektchildhoods.com" target="_blank"><img src="img/Rektchildhoods_white_transparent.png" border="0" style="width:300px;"></a>
+                      <br/>
+                     <p style="padding-bottom:55px;">Meet the team behind Degen Santa - REKT:CHILDHOODS We celebrate the DEGEN side of fables, myths & legends.<br/>
+                     
+                     
+                     </p>
+                    
+                     <div class="row">
+                        <div class="col-lg-4">
+                            <div class="product-slider text-center">
+                                <div class="pro-img">
+                                    <img src="images/s1.jpg" style="width:200px;" alt="product-img">
+                                </div>
+                                <div class="border-style">
+                                    <h4>Matt</h4>
+                                   
+                                </div>
+                                <p>
+									Swaps fitness & marketing for pixels & pngs.
+									<br/><br/>
+                               </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="product-slider text-center">
+                                <div class="pro-img">
+                                    <img src="images/s2.jpg" style="width:200px;"  alt="product-img">
+                                </div>
+                                <div class="border-style">
+                                    <h4>D1 (Dan P)</h4>
+                                   
+                                </div>
+                                <p>
+								Sells strategy to corporates and craft beers to degens. Scared of bears IRL.
+
+
+                               </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-4">
+                            <div class="product-slider text-center">
+                                <div class="pro-img">
+                                    <img src="images/s3.jpg" style="width:200px;"  alt="product-img">
+                                </div>
+                                <div class="border-style">
+                                    <h4>D2 (Dan D)</h4>
+                                    
+                                </div>
+                                <p>
+								Builds web apps for suits by day & tries to code web 3.0 for degens in the early am.
+								Scared of beers IRL.
+
+                               </p>
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                   
+                </div>
+               
+            	</div>
+				
+				</div>
+				</div>
+		</div>
+    	</div>
+    	
+    	<div id="community" class="bg-container2 ">
+    	<div class="parallaxbg5 snowy"></div>
+    	<div class="page-content">
+				<div class="fullpage" style="display: flex;
+  align-items: center;
+  justify-content: center;width:100%;height:100%;">
+				<div class="container">
+				<div class="row header-text text-center">
+                <div class="col-lg-12 text-center">
+                   
+                     <div style="text-align:center;">
+                    <div class="content1">
+                     <h3>Community</h3>
+                     <div style="padding-top:15px;">
+                     <div class="row">
+                        <div class="col-lg-6">
+                            <div class="product-slider text-center"  style="cursor:pointer;" onclick="window.location.href='https://twitter.com/degensantaNFT';">
+                                <a href="https://twitter.com/degensantaNFT"><i class="fa fa-twitter" style="font-size:40px;"  aria-hidden="true"></i></a>
+                                <div class="border-style"  style="padding-top:15px;">
+                                    <h4>Twitter</h4>
+                                   
+                                </div>
+                                
+                            </div>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="product-slider text-center" style="cursor:pointer;" onclick="window.location.href='https://discord.gg/tTUuvBBk';">
+                                 <a href="https://discord.gg/tTUuvBBk"><i class="fa-brands fa-discord" style="font-size:40px;" aria-hidden="true"></i></a>
+                                <div class="border-style" style="padding-top:15px;">
+                                    <h4>Discord</h4>
+                                   
+                                </div>
+                                
+                            </div>
+                        </div>
+                        
+                        
+                    </div>
+                     
+                     </div>
+                    </div>
+                    </div>
+                </div>
+               
+            	</div>
+				
+				</div>
+				</div>
+		</div>
+    	</div>
+   
+
+    <!-- COPY_RIGHT AREA START -->
+    <section id="footer-btm">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="fop-btm text-center">
+                        <h2>A REKT:CHILDHOODS Project</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- COPY_RIGHT AREA END -->
+    
+    <!-- Optional JavaScript -->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="js/countdown.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/slick.min.js"></script>
+    <script src="js/jquery.isotope.min.js"></script>
+    <script src="js/circular.js"></script>
+    <script type="text/javascript" src="js/jquery.fullpage.min.js"></script>
+    <script type="text/javascript" src="js/three.canvas.js"></script>
+    <script type="text/javascript" src="js/snowy.js"></script>
+    <script src="js/custom.js"></script>
+    
+    
+</body>
+
 </html>
