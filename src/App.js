@@ -1,11 +1,10 @@
 import './App.css';
-import {useState} from "react";
+import {useState,useEffect } from "react";
 import {loadContract} from "./loadContract"
 import Web3 from "web3";
 import { ToastContainer, toast } from 'react-toastify';
 import { useLocation } from "react-router-dom"
 import 'react-toastify/dist/ReactToastify.css'; 
-import { useEffect } from 'react/cjs/react.development';
 function App() {
     const [nftData,setNftData]=useState();
     const [contractData,setContractData]=useState();
@@ -40,7 +39,7 @@ function App() {
           const accounts=await window.ethereum.request({ method: 'eth_requestAccounts' });
           const provider=window.ethereum;
           const userWallet=accounts[0];
-          const contract=await loadContract("DegenSanta",provider);
+          const contract=await loadContract("NFT",provider);
           const totalMint=await contract.totalMint();
           const maxMint=await contract.maxMint();
           const saleStatus=await contract.salesOpen();
@@ -110,67 +109,67 @@ function App() {
   return (
       <>
       <ToastContainer/>
-     {<div class="container">
+     {saleType=="public"&&<div className="container">
 
-<div class="shadow-box">
-    <p class="minttext1">First 333 FREE, each Degen Santa costs 0.03 ETH after</p>
-    <p class="minttext2">Excluding gas fees</p>
+<div className="shadow-box">
+    <p className="minttext1">First 333 FREE, each Degen Santa costs 0.03 ETH after</p>
+    <p className="minttext2">Excluding gas fees</p>
     
-    {contractData&&<p class="minttext3">{contractData?.totalMint} / {contractData?.maxMint}</p>}
+    {contractData&&<p className="minttext3">{contractData?.totalMint} / {contractData?.maxMint}</p>}
    <br/>
-    <p class="minttext2">Connect your wallet to the Ethereum network</p>
+    <p className="minttext2">Connect your wallet to the Ethereum network</p>
 </div>
-<div class="amount-group">
-<a onClick="" class="btn-default m-10 button-res" onClick={()=>{amount>1&&setAmount(amount-1)}}>-</a>
-<a  class="btn-default m-10 button-res">{amount}</a>
-<a onClick="" class="btn-default m-10 button-res" onClick={()=>{amount<5&&setAmount(amount+1)}}>+</a>
+<div className="amount-group">
+<a onClick="" className="btn-default m-10 button-res" onClick={()=>{amount>1&&setAmount(amount-1)}}>-</a>
+<a  className="btn-default m-10 button-res">{amount}</a>
+<a onClick="" className="btn-default m-10 button-res" onClick={()=>{amount<5&&setAmount(amount+1)}}>+</a>
 </div>
 
-<a class="btn-default" onClick={contractData?(contractData?.saleStatus&&mintHandler):connectHandler}>{loading?<><img width={50} src="/roll.svg"/></>:
+<a className="btn-default" onClick={contractData?(contractData?.saleStatus&&mintHandler):connectHandler}>{loading?<><img width={50} src="/roll.svg"/></>:
 <>{contractData?(contractData?.saleStatus?"Mint Santa":"Coming Soon"):"Connect"}</>}</a>
 </div>}
 
 
 
 
-{saleType=="private"&&    <div class="container">
+{saleType=="private"&&    <div className="container">
 
-<div class="shadow-box">
-    <p class="minttext1">First 333 FREE, each Degen Santa costs 0.03 ETH after</p>
-    <p class="minttext2">Excluding gas fees</p>
+<div className="shadow-box">
+    <p className="minttext1">First 333 FREE, each Degen Santa costs 0.03 ETH after</p>
+    <p className="minttext2">Excluding gas fees</p>
     
-    {contractData&&<p class="minttext3">{contractData?.totalMint} / {contractData?.maxMint}</p>}
+    {contractData&&<p className="minttext3">{contractData?.totalMint} / {contractData?.maxMint}</p>}
    <br/>
-    <p class="minttext2">Connect your wallet to the Ethereum network</p>
+    <p className="minttext2">Connect your wallet to the Ethereum network</p>
 </div>
-<div class="amount-group">
-<a onClick="" class="btn-default m-10 button-res" onClick={()=>{amount>1&&setAmount(amount-1)}}>-</a>
-<a  class="btn-default m-10 button-res">{amount}</a>
-<a onClick="" class="btn-default m-10 button-res" onClick={()=>{amount<5&&setAmount(amount+1)}}>+</a>
+<div className="amount-group">
+<a onClick="" className="btn-default m-10 button-res" onClick={()=>{amount>1&&setAmount(amount-1)}}>-</a>
+<a  className="btn-default m-10 button-res">{amount}</a>
+<a onClick="" className="btn-default m-10 button-res" onClick={()=>{amount<5&&setAmount(amount+1)}}>+</a>
 </div>
 
-<a class="btn-default" onClick={contractData?(contractData?.saleStatus&&mintHandler):connectHandler}>{loading?<><img width={50} src="/roll.svg"/></>:
+<a className="btn-default" onClick={contractData?(contractData?.saleStatus&&mintHandler):connectHandler}>{loading?<><img width={50} src="/roll.svg"/></>:
 <>{contractData?("Mint Santa"):"Connect"}</>}</a>
 </div>}
 
 
 
 
-{saleType=="free"&&    <div class="container">
+{saleType=="free"&&    <div className="container">
 
-<div class="shadow-box">
-    <p class="minttext1">First 333 FREE, each Degen Santa costs 0.025 ETH after</p>
-    <p class="minttext2">Excluding gas fees</p>
+<div className="shadow-box">
+    <p className="minttext1">First 333 FREE, each Degen Santa costs 0.025 ETH after</p>
+    <p className="minttext2">Excluding gas fees</p>
     
-    {contractData&&<p class="minttext3">{contractData?.totalMint} / {contractData?.maxMint}</p>}
+    {contractData&&<p className="minttext3">{contractData?.totalMint} / {contractData?.maxMint}</p>}
    <br/>
-    <p class="minttext2">Connect your wallet to the Ethereum network</p>
+    <p className="minttext2">Connect your wallet to the Ethereum network</p>
 </div>
-<div class="amount-group">
-<a  class="btn-default m-10 button-res">{amount}</a>
+<div className="amount-group">
+<a  className="btn-default m-10 button-res">{amount}</a>
 </div>
 
-<a class="btn-default" onClick={contractData?(contractData?.saleStatus&&mintHandler):connectHandler}>{loading?<><img width={50} src="/roll.svg"/></>:
+<a className="btn-default" onClick={contractData?(contractData?.saleStatus&&mintHandler):connectHandler}>{loading?<><img width={50} src="/roll.svg"/></>:
 <>{contractData?("Mint Santa"):"Connect"}</>}</a>
 </div>}
 
