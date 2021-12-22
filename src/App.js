@@ -110,7 +110,7 @@ function App() {
   return (
       <>
       <ToastContainer/>
-     {saleType=="public"&&    <div class="container">
+     {<div class="container">
 
 <div class="shadow-box">
     <p class="minttext1">First 333 FREE, each Degen Santa costs 0.03 ETH after</p>
