@@ -20,7 +20,7 @@ function App() {
             setSaleType("public");
          
         }
-        else if(location.pathname=="/ps"){
+        else if(location.pathname=="/ps" || location.pathname=="/ps/"){
             setNftPrice("0.025");
             setSaleType("private");
         }
