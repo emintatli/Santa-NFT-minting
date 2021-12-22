@@ -67,7 +67,7 @@ function App() {
             setLoading(true);
           const tx=await nftData.contract.awardItem(nftData.userWallet,amount,{from:nftData.userWallet,value:amount*Web3.utils.toWei(nftPrice, 'ether')})
           if(tx){
-            toast.success('🎅 Thanks for minting your Degen Santa.Your minted santa will appear in OpenSea within 5 - 10 minutes. If you havent already, please go to opensea.io and link your metamask account. Thanks again, and have a very merry degen Xmas', {
+            toast.success('🎅 Thanks for minting your Degen Santa.Your minted santa will appear in OpenSea within 5 - 10 minutes. If you haven\'t already, please go to opensea.io and link your metamask account. Thanks again, and have a very merry degen Xmas', {
               position: "bottom-right",
               hideProgressBar: false,
               closeOnClick: true,
@@ -103,7 +103,7 @@ function App() {
             setLoading(true);
           const tx=await nftData.contract.awardItem(nftData.userWallet,amount,{from:nftData.userWallet,value:amount=="1"?0:((amount-1)*Web3.utils.toWei(nftPrice, 'ether'))})
           if(tx){
-            toast.success('🎅 Thanks for minting your Degen Santa.Your minted santa will appear in OpenSea within 5 - 10 minutes. If you havent already, please go to opensea.io and link your metamask account. Thanks again, and have a very merry degen Xmas', {
+            toast.success('🎅 Thanks for minting your Degen Santa.Your minted santa will appear in OpenSea within 5 - 10 minutes. If you haven\'t already, please go to opensea.io and link your metamask account. Thanks again, and have a very merry degen Xmas', {
               position: "bottom-right",
               hideProgressBar: false,
               closeOnClick: true,
@@ -144,7 +144,7 @@ function App() {
     
     {contractData&&<p className="minttext3">{contractData?.totalMint} / {contractData?.maxMint}</p>}
 
-    <p className="minttext2">Connect your wallet to the Ethereum network</p>
+    <p className="minttext2">Connect your MetaMask wallet by clicking the button below.</p>
 </div>
 <div className="amount-group">
 <a className="btn-default m-10 button-res" onClick={()=>{amount>1&&setAmount(amount-1)}}>-</a>
@@ -153,7 +153,7 @@ function App() {
 </div>
 
 <a className="btn-default" onClick={contractData?(contractData?.saleStatus&&mintHandler):connectHandler}>{loading?<><img width={50} src="/roll.svg"/></>:
-<>{contractData?(contractData?.saleStatus?"Mint Santa":"Coming Soon"):"Connect"}</>}</a>
+<>{contractData?(contractData?.saleStatus?"Mint Santa":"Coming Soon"):"Connect Wallet"}</>}</a>
 </div>}
 
 
@@ -167,7 +167,7 @@ function App() {
     
     {contractData&&<p className="minttext3">{contractData?.totalMint} / {contractData?.maxMint}</p>}
    <br/>
-    <p className="minttext2">Connect your wallet to the Ethereum network</p>
+    <p className="minttext2">Connect your MetaMask wallet by clicking the button below.</p>
 </div>
 <div className="amount-group">
 <a  className="btn-default m-10 button-res" onClick={()=>{amount>1&&setAmount(amount-1)}}>-</a>
@@ -176,7 +176,7 @@ function App() {
 </div>
 
 <a className="btn-default" onClick={contractData?(contractData&&psMintHandler):connectHandler}>{loading?<><img width={50} src="/roll.svg"/></>:
-<>{contractData?("Mint Santa"):"Connect"}</>}</a>
+<>{contractData?("Mint Santa"):"Connect Wallet"}</>}</a>
 </div>}
 
 </>
