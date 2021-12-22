@@ -39,7 +39,7 @@ function App() {
           const accounts=await window.ethereum.request({ method: 'eth_requestAccounts' });
           const provider=window.ethereum;
           const userWallet=accounts[0];
-          const contract=await loadContract("NFT",provider);
+          const contract=await loadContract("DegenSanta",provider);
           const totalMint=await contract.totalMint();
           const maxMint=await contract.maxMint();
           const saleStatus=await contract.salesOpen();
@@ -120,9 +120,9 @@ function App() {
     <p className="minttext2">Connect your wallet to the Ethereum network</p>
 </div>
 <div className="amount-group">
-<a onClick="" className="btn-default m-10 button-res" onClick={()=>{amount>1&&setAmount(amount-1)}}>-</a>
+<a className="btn-default m-10 button-res" onClick={()=>{amount>1&&setAmount(amount-1)}}>-</a>
 <a  className="btn-default m-10 button-res">{amount}</a>
-<a onClick="" className="btn-default m-10 button-res" onClick={()=>{amount<5&&setAmount(amount+1)}}>+</a>
+<a className="btn-default m-10 button-res" onClick={()=>{amount<5&&setAmount(amount+1)}}>+</a>
 </div>
 
 <a className="btn-default" onClick={contractData?(contractData?.saleStatus&&mintHandler):connectHandler}>{loading?<><img width={50} src="/roll.svg"/></>:
@@ -143,12 +143,12 @@ function App() {
     <p className="minttext2">Connect your wallet to the Ethereum network</p>
 </div>
 <div className="amount-group">
-<a onClick="" className="btn-default m-10 button-res" onClick={()=>{amount>1&&setAmount(amount-1)}}>-</a>
+<a  className="btn-default m-10 button-res" onClick={()=>{amount>1&&setAmount(amount-1)}}>-</a>
 <a  className="btn-default m-10 button-res">{amount}</a>
-<a onClick="" className="btn-default m-10 button-res" onClick={()=>{amount<5&&setAmount(amount+1)}}>+</a>
+<a className="btn-default m-10 button-res" onClick={()=>{amount<5&&setAmount(amount+1)}}>+</a>
 </div>
 
-<a className="btn-default" onClick={contractData?(contractData?.saleStatus&&mintHandler):connectHandler}>{loading?<><img width={50} src="/roll.svg"/></>:
+<a className="btn-default" onClick={contractData?(contractData&&mintHandler):connectHandler}>{loading?<><img width={50} src="/roll.svg"/></>:
 <>{contractData?("Mint Santa"):"Connect"}</>}</a>
 </div>}
 
@@ -169,7 +169,7 @@ function App() {
 <a  className="btn-default m-10 button-res">{amount}</a>
 </div>
 
-<a className="btn-default" onClick={contractData?(contractData?.saleStatus&&mintHandler):connectHandler}>{loading?<><img width={50} src="/roll.svg"/></>:
+<a className="btn-default" onClick={contractData?(contractData&&mintHandler):connectHandler}>{loading?<><img width={50} src="/roll.svg"/></>:
 <>{contractData?("Mint Santa"):"Connect"}</>}</a>
 </div>}
 
