@@ -139,7 +139,7 @@ function App() {
      {saleType=="public"&&<div className="container">
 
 <div className="shadow-box">
-    <p className="minttext1">First 333 FREE, each Degen Santa costs 0.03 ETH after</p>
+    <p className="minttext1">First 333 FREE (1 FREE PP), each Degen Santa costs 0.025 ETH after</p>
     <p className="minttext2">Excluding gas fees</p>
     
     {contractData&&<p className="minttext3">{contractData?.totalMint} / {contractData?.maxMint}</p>}
