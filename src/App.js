@@ -20,12 +20,6 @@ function App() {
             setSaleType("public");
          
         }
-        else if(location.pathname=="/fwl"){
-            setAmount(1);
-            setNftPrice("0");
-            setSaleType("free");
-
-        }
         else if(location.pathname=="/ps"){
             setNftPrice("0.025");
             setSaleType("private");
@@ -55,12 +49,12 @@ function App() {
             console.log(err)
             toast.error('🎅 Someting went wrong!', {
                 position: "bottom-right",
-                autoClose: 5000,
                 hideProgressBar: false,
                 closeOnClick: true,
                 pauseOnHover: true,
                 draggable: true,
                 progress: undefined,
+                autoClose:false
                 });
                 setLoading(false);
         }
@@ -73,19 +67,17 @@ function App() {
             setLoading(true);
           const tx=await nftData.contract.awardItem(nftData.userWallet,amount,{from:nftData.userWallet,value:amount*Web3.utils.toWei(nftPrice, 'ether')})
           if(tx){
-            toast.success('🎅 Thanks for your purchasing your Degen Santa. We\'ll now redirect you to your OpenSea account. Your minted Santa should appear within 5 - 10 minutes. Merry Xmas', {
+            toast.success('🎅 Thanks for minting your Degen Santa.Your minted santa will appear in OpenSea within 5 - 10 minutes. If you havent already, please go to opensea.io and link your metamask account. Thanks again, and have a very merry degen Xmas', {
               position: "bottom-right",
-              autoClose: 10000,
               hideProgressBar: false,
               closeOnClick: true,
               pauseOnHover: true,
               draggable: true,
-              progress: undefined
+              progress: undefined,
+              autoClose:false
               });
               setLoading(false);
-              setTimeout(()=>{
-                window.location.replace("https://testnets.opensea.io/account");
-              },10000)
+        
               
           }
         }
@@ -93,17 +85,52 @@ function App() {
             console.log(err)
           toast.error('🎅 Someting went wrong!', {
             position: "bottom-right",
-            autoClose: 5000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
             draggable: true,
             progress: undefined,
+            autoClose:false
             });
             setLoading(false);
         }
       }
 
+
+      const psMintHandler=async()=>{
+
+        try{
+            setLoading(true);
+          const tx=await nftData.contract.awardItem(nftData.userWallet,amount,{from:nftData.userWallet,value:amount=="1"?0:((amount-1)*Web3.utils.toWei(nftPrice, 'ether'))})
+          if(tx){
+            toast.success('🎅 Thanks for minting your Degen Santa.Your minted santa will appear in OpenSea within 5 - 10 minutes. If you havent already, please go to opensea.io and link your metamask account. Thanks again, and have a very merry degen Xmas', {
+              position: "bottom-right",
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+              autoClose:false
+              });
+              setLoading(false);
+            
+              
+          }
+        }
+         catch(err){
+            console.log(err)
+          toast.error('🎅 Someting went wrong!', {
+            position: "bottom-right",
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            autoClose:false
+            });
+            setLoading(false);
+        }
+      }
 
 
   return (
@@ -116,7 +143,7 @@ function App() {
     <p className="minttext2">Excluding gas fees</p>
     
     {contractData&&<p className="minttext3">{contractData?.totalMint} / {contractData?.maxMint}</p>}
-   <br/>
+
     <p className="minttext2">Connect your wallet to the Ethereum network</p>
 </div>
 <div className="amount-group">
@@ -135,7 +162,7 @@ function App() {
 {saleType=="private"&&    <div className="container">
 
 <div className="shadow-box">
-    <p className="minttext1">First 333 FREE, each Degen Santa costs 0.03 ETH after</p>
+    <p className="minttext1">First 333 FREE, each Degen Santa costs 0.025 ETH after</p>
     <p className="minttext2">Excluding gas fees</p>
     
     {contractData&&<p className="minttext3">{contractData?.totalMint} / {contractData?.maxMint}</p>}
@@ -148,31 +175,9 @@ function App() {
 <a className="btn-default m-10 button-res" onClick={()=>{amount<5&&setAmount(amount+1)}}>+</a>
 </div>
 
-<a className="btn-default" onClick={contractData?(contractData&&mintHandler):connectHandler}>{loading?<><img width={50} src="/roll.svg"/></>:
+<a className="btn-default" onClick={contractData?(contractData&&psMintHandler):connectHandler}>{loading?<><img width={50} src="/roll.svg"/></>:
 <>{contractData?("Mint Santa"):"Connect"}</>}</a>
 </div>}
-
-
-
-
-{saleType=="free"&&    <div className="container">
-
-<div className="shadow-box">
-    <p className="minttext1">First 333 FREE, each Degen Santa costs 0.025 ETH after</p>
-    <p className="minttext2">Excluding gas fees</p>
-    
-    {contractData&&<p className="minttext3">{contractData?.totalMint} / {contractData?.maxMint}</p>}
-   <br/>
-    <p className="minttext2">Connect your wallet to the Ethereum network</p>
-</div>
-<div className="amount-group">
-<a  className="btn-default m-10 button-res">{amount}</a>
-</div>
-
-<a className="btn-default" onClick={contractData?(contractData&&mintHandler):connectHandler}>{loading?<><img width={50} src="/roll.svg"/></>:
-<>{contractData?("Mint Santa"):"Connect"}</>}</a>
-</div>}
-
 
 </>
 

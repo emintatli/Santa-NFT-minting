@@ -226,3 +226,10 @@ p {
 .btn-default{
 	cursor: pointer;
 }
+
+@media screen and (max-height:768px)
+{
+.bg-container{
+	height: 120vh;
+}
+}
