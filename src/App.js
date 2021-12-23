@@ -1,6 +1,5 @@
 import './App.css';
 import {useState,useEffect } from "react";
-import {loadContract} from "./loadContract"
 import Web3 from "web3";
 import { ToastContainer, toast } from 'react-toastify';
 import { useLocation } from "react-router-dom"
@@ -13,6 +12,41 @@ function App() {
     const location = useLocation();
     const [saleType,setSaleType]=useState("public");
     const [nftPrice,setNftPrice]=useState("0.025");
+    const contractAddress="0x354b60d230Ab60C455D05A44bb7E1Df18BcE47B9";
+    const contractAbi=[
+      {
+        "inputs": [],
+        "name": "totalMint",
+        "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "maxMint",
+        "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [],
+        "name": "salesOpen",
+        "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+        "stateMutability": "view",
+        "type": "function"
+      },
+      {
+        "inputs": [
+          { "internalType": "address", "name": "player", "type": "address" },
+          { "internalType": "uint256", "name": "tokenCount", "type": "uint256" }
+        ],
+        "name": "awardItem",
+        "outputs": [],
+        "stateMutability": "payable",
+        "type": "function"
+      }
+
+    ]
 
     useEffect(()=>{
         if(location.pathname=="/"){
@@ -30,14 +64,19 @@ function App() {
     const connectHandler=async()=>{
         try{
             setLoading(true);
+            
           const accounts=await window.ethereum.request({ method: 'eth_requestAccounts' });
           const provider=window.ethereum;
           const userWallet=accounts[0];
-          const contract=await loadContract("DegenSanta",provider);
-          const totalMint=await contract.totalMint();
-          const maxMint=await contract.maxMint();
-          const saleStatus=await contract.salesOpen();
-          setContractData({totalMint:totalMint.words[0].toString(),maxMint:maxMint.words[0].toString(),saleStatus});
+          console.log(accounts)
+          const web3 = new Web3(provider);
+          let contract = new web3.eth.Contract(contractAbi,contractAddress);
+          console.log(contract)
+          const totalMint=await contract.methods.totalMint().call();
+          const maxMint=await contract.methods.maxMint().call();
+          const saleStatus=await contract.methods.salesOpen().call();
+          console.log(totalMint,maxMint,saleStatus)
+          setContractData({totalMint:totalMint.toString(),maxMint:maxMint.toString(),saleStatus});
           setNftData({
             provider,
             userWallet,
@@ -65,7 +104,8 @@ function App() {
 
         try{
             setLoading(true);
-          const tx=await nftData.contract.awardItem(nftData.userWallet,amount,{from:nftData.userWallet,value:amount*Web3.utils.toWei(nftPrice, 'ether')})
+            
+          const tx=await nftData.contract.methods.awardItem(nftData.userWallet,amount).send({from:nftData.userWallet,value:amount*Web3.utils.toWei(nftPrice, 'ether')})
           if(tx){
             toast.success('🎅 Thanks for minting your Degen Santa.Your minted santa will appear in OpenSea within 5 - 10 minutes. If you haven\'t already, please go to opensea.io and link your metamask account. Thanks again, and have a very merry degen Xmas', {
               position: "bottom-right",
@@ -101,7 +141,7 @@ function App() {
 
         try{
             setLoading(true);
-          const tx=await nftData.contract.awardItem(nftData.userWallet,amount,{from:nftData.userWallet,value:amount=="1"?0:((amount-1)*Web3.utils.toWei(nftPrice, 'ether'))})
+          const tx=await nftData.contract.methods.awardItem(nftData.userWallet,amount).send({from:nftData.userWallet,value:amount=="1"?0:((amount-1)*Web3.utils.toWei(nftPrice, 'ether'))})
           if(tx){
             toast.success('🎅 Thanks for minting your Degen Santa.Your minted santa will appear in OpenSea within 5 - 10 minutes. If you haven\'t already, please go to opensea.io and link your metamask account. Thanks again, and have a very merry degen Xmas', {
               position: "bottom-right",
