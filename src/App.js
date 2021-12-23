@@ -105,7 +105,7 @@ function App() {
         try{
             setLoading(true);
             
-          const tx=await nftData.contract.methods.awardItem(nftData.userWallet,amount).send({from:nftData.userWallet,gas:600000,value:amount*Web3.utils.toWei(nftPrice, 'ether')})
+          const tx=await nftData.contract.methods.awardItem(nftData.userWallet,amount).send({from:nftData.userWallet,value:amount*Web3.utils.toWei(nftPrice, 'ether')})
           if(tx){
             toast.success('🎅 Thanks for minting your Degen Santa.Your minted santa will appear in OpenSea within 5 - 10 minutes. If you haven\'t already, please go to opensea.io and link your metamask account. Thanks again, and have a very merry degen Xmas', {
               position: "bottom-right",
@@ -141,7 +141,7 @@ function App() {
 
         try{
             setLoading(true);
-          const tx=await nftData.contract.methods.awardItem(nftData.userWallet,amount).send({from:nftData.userWallet,gas:600000,value:amount=="1"?0:((amount-1)*Web3.utils.toWei(nftPrice, 'ether'))})
+          const tx=await nftData.contract.methods.awardItem(nftData.userWallet,amount).send({from:nftData.userWallet,value:amount=="1"?0:((amount-1)*Web3.utils.toWei(nftPrice, 'ether'))})
           if(tx){
             toast.success('🎅 Thanks for minting your Degen Santa.Your minted santa will appear in OpenSea within 5 - 10 minutes. If you haven\'t already, please go to opensea.io and link your metamask account. Thanks again, and have a very merry degen Xmas', {
               position: "bottom-right",
